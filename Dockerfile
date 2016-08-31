@@ -58,7 +58,7 @@ ENV DEFAULT_PLUGINS_REPO=sensu-plugins \
     HOST_SYS_DIR=/sys
 
 RUN mkdir -p $CONFIG_DIR $CHECK_DIR $EXTENSION_DIR $PLUGINS_DIR $HANDLERS_DIR
-RUN /bin/install http
+RUN /bin/install cpu-checks disk-checks docker http logs memory-checks nginx ntp sensu ssl
 
 EXPOSE 4567
 VOLUME ["/etc/sensu/conf.d"]
