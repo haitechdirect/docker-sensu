@@ -1,0 +1,12 @@
+#!/bin/bash
+
+envtpl -in /config/config.json.tmpl > /etc/sensu/uchiwa.json
+/opt/uchiwa/bin/uchiwa \
+    -d /etc/sensu/dashboard.d \
+    -c /etc/sensu/uchiwa.json \
+    -p /opt/uchiwa/src/public
+
+if [ $? -ne 0 ]; then
+    echo '/etc/sensu/uchiwa.json'
+    cat /etc/sensu/uchiwa.json
+fi
